@@ -1,0 +1,16 @@
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+# Specify your gem's dependencies in app_component.gemspec.
+gemspec
+
+gem "trueskill", git: "https://github.com/benjaminleesmith/trueskill", ref: "e404f45af5b3fb86982881ce064a9c764cc6a901"
+
+group :development do
+  gem 'sqlite3'
+end
+
+# To use a debugger
+# gem 'byebug', group: [:development, :test]
+
+
