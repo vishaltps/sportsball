@@ -1,24 +1,25 @@
-# README
+# Model, Migration and Gem
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### Model
 
-* Ruby version
+Component can directly access models of main app. For instance, In the Games controller, we can directly access Post model of main.
 
-* System dependencies
+Need to use component module for accessing component model into main app. For instance, in the posts controller, for accessing game model of app_component, we can access with `AppComponent::Game`.
 
-* Configuration
+### Migration
 
-* Database creation
+For the syncing, Need to copy all the migration of component into the main app. We can do it with `rake app_component:install:migrations ` command. app_component is name of component.
+It needs to be run after every migration added on component.
 
-* Database initialization
+### Gem
 
-* How to run the test suite
+Any gem added on main app can be directly used in component. 
 
-* Services (job queues, cache servers, search engines, etc.)
+If you want to add gem for component only you need to add gem in 3 places.
 
-* Deployment instructions
+1. Gemfile of component
+2. Add dependency of gem in gem spec
+3. add require statement in lib/app_component.rb
 
-* ...
+Any gem added as dependency of engine/component will be available to main gem also.
